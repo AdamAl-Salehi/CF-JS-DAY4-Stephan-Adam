@@ -5,10 +5,10 @@ class Hotel {
     image;
 
     constructor(hotelName, address, image) { // ③
-       this.hotelName = hotelName;
-       this.address = address;
-       this.image = image;
-   }
+        this.hotelName = hotelName;
+        this.address = address;
+        this.image = image;
+    }
 
     showAvailability() {
         var requiredNights = prompt(`${this.hotelName}: How many nights do you need?`);
@@ -26,6 +26,15 @@ var Ritz = new Hotel("Ritz", "Boulevard", "bad");
 var Hilton = new Hotel("Hilton", "Street", "good");
 var Home = new Hotel("Home", "Alley", "best");
 
-Ritz.showAvailability();
-Hilton.showAvailability();
-Home.showAvailability();
+function choose() {
+    var select = document.getElementById("select").value;
+    if (select == "Ritz") {
+        Ritz.showAvailability();
+    } else if (select == "Hilton") {
+        Hilton.showAvailability();
+    } else {
+        Home.showAvailability();
+    }
+}
+
+document.getElementById("submit").addEventListener("click", choose, false);
